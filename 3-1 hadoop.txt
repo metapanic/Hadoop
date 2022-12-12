@@ -1,0 +1,42 @@
+hdfs dfs -copyFromLocal /home/cloudera/hadoop/voyna-i-mir-tom-1.txt /home/cloudera/hadoop/voyna-i-mir-tom-2.txt /home/cloudera/hadoop/voyna-i-mir-tom-3.txt /home/cloudera/hadoop/voyna-i-mir-tom-4.txt /user/cloudera
+
+
+hadoop fs -ls /user/cloudera
+
+>
+-rw-r--r--   1 cloudera cloudera     736519 2022-12-11 19:03 /user/cloudera/voyna-i-mir-tom-1.txt
+-rw-r--r--   1 cloudera cloudera     770324 2022-12-11 19:03 /user/cloudera/voyna-i-mir-tom-2.txt
+-rw-r--r--   1 cloudera cloudera     843205 2022-12-11 19:03 /user/cloudera/voyna-i-mir-tom-3.txt
+-rw-r--r--   1 cloudera cloudera     697960 2022-12-11 19:03 /user/cloudera/voyna-i-mir-tom-4.txt
+
+
+hdfs dfs -put /Voyna_i_mir_1-4.txt  /user/cloudera
+
+
+hdfs dfs -chmod 764 /user/cloudera/*
+
+>
+Found 4 items
+-rwxrw-r--   1 cloudera cloudera     736519 2022-12-11 19:03 voyna-i-mir-tom-1.txt
+-rwxrw-r--   1 cloudera cloudera     770324 2022-12-11 19:03 voyna-i-mir-tom-2.txt
+-rwxrw-r--   1 cloudera cloudera     843205 2022-12-11 19:03 voyna-i-mir-tom-3.txt
+-rwxrw-r--   1 cloudera cloudera     697960 2022-12-11 19:03 voyna-i-mir-tom-4.txt
+
+
+
+hdfs dfs -du  -h /user/cloudera/Voyna_i_mir_1-4.txt
+
+>
+2.9 M  2.9 M  /user/cloudera/Voyna_i_mir_1-4.txt
+
+
+hdfs dfs -setrep -w 2 /user/cloudera/Voyna_i_mir_1-4.txt
+
+>
+2.9 M  5.8 M  /user/cloudera/Voyna_i_mir_1-4.txt
+
+
+hdfs dfs -cat /user/cloudera/Voyna_i_mir_1-4.txt | wc -l
+
+>
+10272
